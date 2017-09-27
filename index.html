@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <!-- Meta, title, CSS, favicons, etc. -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Dobrodosli! | ASW </title>
+
+    <!-- Bootstrap -->
+    <link href="vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link href="vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <!-- NProgress -->
+    <link href="vendors/nprogress/nprogress.css" rel="stylesheet">
+    <!-- bootstrap-progressbar -->
+    <link href="vendors/bootstrap-progressbar/css/bootstrap-progressbar-3.3.4.min.css" rel="stylesheet">
+    <!-- bootstrap-daterangepicker -->
+    <link href="vendors/bootstrap-daterangepicker/daterangepicker.css" rel="stylesheet">
+
+    <!-- Custom Theme Style -->
+
+    <link rel="stylesheet" type="text/css" title="blue" href="css/custom.css">
+    <link rel="alternate stylesheet" type="text/css" title="red" href="css/theme1.css">
+
+  </head>
+
+  <body class="nav-md" onload="set_style_from_cookie()">
+    <div class="container body">
+      <div class="main_container">
+        <div class="col-md-3 left_col menu_fixed">
+          <div class="left_col scroll-view">
+            <div class="navbar nav_title" style="border: 0;">
+              <a href="index.html" class="site_title"><img class="brand-logo" src="images/logo-scb.png"></a>
+            </div>
+
+            <div class="clearfix"></div>
+
+            <!-- menu profile quick info -->
+            <div class="profile clearfix">
+              <div class="profile_pic">
+                <img src="images/img.jpg" alt="..." class="img-circle profile_img">
+              </div>
+              <div class="profile_info">
+                <span>Administrator</span>
+                <h2>Petar Petrovic</h2>
+              </div>
+              <div class="clearfix"></div>
+            </div>
+            <!-- /menu profile quick info -->
+
+            <br />
+
+            <!-- sidebar menu -->
+            <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
+              <div class="menu_section">
+                <ul class="nav side-menu">
+                  <li class="active"><a href="index.html"><i class="fa fa-home"></i> Početna</a></li>
+                  <li><a href="narucivanje.html"><i class="fa fa-list"></i> Naručivanje</a></li>
+                  <li><a href="mesecna_prodaja.html"><i class="fa fa-calendar"></i> Mesecna prodaja</a></li>
+                  <li><a href="ranije_narudzbe.html"><i class="fa fa-history"></i> Ranije narudžbe</a></li>
+                  <li><a href="sinhronizacija.html"><i class="fa fa-refresh"></i> Sinhronizacija</a></li>
+                  <li><a href="administracija_korisnika.html"><i class="fa fa-users"></i> Administracija korisnika</a></li>
+                  <li><a href="korpa.html"><i class="fa fa-shopping-cart"></i> Korpa</a></li>
+                </ul>
+              </div>
+            </div>
+            <!-- /sidebar menu -->
+
+            <!-- /menu footer buttons -->
+            <div class="sidebar-footer hidden-small">
+              <div class="dropup">
+                <a class="dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" title="Change theme">
+                  <i class="fa fa-eye" aria-hidden="true"></i>
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                  <li> <a class="theme-switcher-item" onclick="switch_style('blue');return false;" name="theme"  id="blue"> Plava tema </a></li>
+                  <li><a class="theme-switcher-item" onclick="switch_style('red');return false;" name="theme"  id="red"> Crvena tema</a></li>
+                </ul>
+              </div>
+              <a data-toggle="tooltip" data-placement="top" title="Ceo ekran" onclick="toggleFullScreen()">
+                <i class="fa fa-arrows-alt" aria-hidden="true"></i>
+              </a>
+              <a data-toggle="tooltip" data-placement="top" title="Promena lozinke" href="promena_lozinke.html">
+                <i class="fa fa-unlock-alt" aria-hidden="true"></i>
+              </a>
+              <a data-toggle="tooltip" data-placement="top" title="Izloguj se" href="login.html">
+                <i class="fa fa-sign-out" aria-hidden="true"></i>
+              </a>
+            </div>
+            <!-- /menu footer buttons -->
+          </div>
+        </div>
+
+        <!-- top navigation -->
+        <div class="top_nav">
+          <div class="nav_menu">
+            <nav>
+              <div class="nav toggle">
+                <a id="menu_toggle"><i class="fa fa-bars"></i></a>
+              </div>
+
+              <ul class="nav navbar-nav navbar-right">
+                <li class="">
+                  <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                    <img src="images/img.jpg" alt=""><span class="username">Voli d.o.o</span>
+                    <span class=" fa fa-angle-down"></span>
+                  </a>
+                  <ul class="dropdown-menu dropdown-usermenu pull-right">
+
+                    <li><a href="promena_lozinke.html">Promena lozinke</a></li>
+                    <li><a href="login.html"><i class="fa fa-sign-out pull-right"></i> Izloguj se</a></li>
+                  </ul>
+                </li>
+                <li role="presentation" class="dropdown">
+                  <a href="javascript:;" class="dropdown-toggle info-number" data-toggle="dropdown" aria-expanded="false">
+                    <i class="fa fa-calendar"></i>
+                  </a>
+                  <ul id="menu1" class="dropdown-menu list-unstyled msg_list" role="menu">
+                    <li><a href="#"><i class="fa fa-list" aria-hidden="true"></i>&nbsp; Najviše naručivani artikli</a>
+                    </li>
+                    <li><a href="#"><i class="fa fa-calendar" aria-hidden="true"></i>&nbsp; Artikli naručivani u poslednjih 90 dana</a>
+                    </li>
+                  </ul>
+                </li>
+                <li role="summary">
+                  <a href="korpa.html"><i class="fa fa-check"></i> 23 / 13 523 RSD</a>
+                </li>
+              </ul>
+            </nav>
+          </div>
+        </div>
+        <!-- /top navigation -->
+
+        <!-- page content -->
+        <div class="right_col" role="main">
+          <!-- top tiles -->
+          <div class="row tile_count">
+            <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
+              <span class="count_top"><i class="fa fa-check"></i> Ukupnih porudzbina</span>
+              <div class="count">2500</div>
+              <span class="count_bottom"><i class="green">4% <i class="fa fa-arrow-up"></i></i>  U odnosu na prethodni mesec</span>
+            </div>
+            <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
+              <span class="count_top"><i class="fa fa-clock-o"></i> Poruceni artikli za mesec februar</span>
+              <div class="count">5423</div>
+              <span class="count_bottom"><i class="green">3% <i class="fa fa-arrow-up"></i></i> U odnosu na prethodni mesec</span>
+            </div>
+            <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
+              <span class="count_top"><i class="fa fa-user"></i> Uspesnih porudzbina</span>
+              <div class="count green">2343</div>
+              <span class="count_bottom"><i class="green">3% <i class="fa fa-arrow-up"></i></i> U odnosu na prethodni mesec</span>
+            </div>
+            <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
+              <span class="count_top"><i class="fa fa-user"></i> Novih proizvoda</span>
+              <div class="count">47</div>
+              <span class="count_bottom"><i class="red"></i>12% <i class="fa fa-arrow-down"></i></i> U odnosu na prethodni mesec</span>
+            </div>
+            <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
+              <span class="count_top"><i class="fa fa-user"></i> Uklonjenih proizvoda</span>
+              <div class="count">10</div>
+              <span class="count_bottom"><i class="green">34% <i class="fa fa-arrow-up"></i></i> U odnosu na prethodni mesec</span>
+            </div>
+            <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
+              <span class="count_top"><i class="fa fa-user"></i> Broj korisnika</span>
+              <div class="count">12</div>
+              <span class="count_bottom"><i class="green">2</i> nova dodata</span>
+            </div>
+          </div>
+          <!-- /top tiles -->
+
+          <div class="row">
+            <div class="col-md-9 col-sm-9 col-xs-12">
+              <div class="x_panel">
+              <div class="dashboard_graph">
+                <div class="row x_title">
+                  <div class="col-md-9">
+                    <h3>Mesecna Prodaja </h3>
+                  </div>
+                </div>
+                <div class="col-md-12 col-sm-12 col-xs-12">
+                    <div id="chart_plot_01" class="demo-placeholder"></div>
+                </div>
+                <div class="clearfix"></div>
+              </div>
+              </div>
+            </div>
+            <div class="col-md-3 col-sm-12 col-xs-12">
+              <div class="x_panel">
+                <div class="x_title">
+                  <h2>Poslednje porudzbine</h2>
+                  <ul class="nav navbar-right panel_toolbox">
+                    <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                    </li>
+                    <li><a class="close-link"><i class="fa fa-close"></i></a>
+                    </li>
+                  </ul>
+                  <div class="clearfix"></div>
+                </div>
+                <ul class="list-unstyled top_profiles scroll-view">
+                  <li class="media event">
+                    <a class="pull-left border-aero profile_thumb">
+                      <i class="fa fa-user aero"></i>
+                    </a>
+                    <div class="media-body">
+                      <a class="title" href="#">Petar Petrovic</a>
+                      <p><strong>21/03/2017 </strong> Voli d.o.o. </p>
+                      <p> <small>Sifra porudzbine: 334544</small>
+                      </p>
+                    </div>
+                  </li>
+                  <li class="media event">
+                    <a class="pull-left border-green profile_thumb">
+                      <i class="fa fa-user green"></i>
+                    </a>
+                    <div class="media-body">
+                      <a class="title" href="#">Petar Petrovic</a>
+                      <p><strong>21/03/2017 </strong> Voli d.o.o. </p>
+                      <p> <small>Sifra porudzbine: 334544</small>
+                      </p>
+                    </div>
+                  </li>
+                  <li class="media event">
+                    <a class="pull-left border-blue profile_thumb">
+                      <i class="fa fa-user blue"></i>
+                    </a>
+                    <div class="media-body">
+                      <a class="title" href="#">Petar Petrovic</a>
+                      <p><strong>21/03/2017 </strong> Voli d.o.o. </p>
+                      <p> <small>Sifra porudzbine: 334544</small>
+                      </p>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <br/>
+          <div class="row">
+            <div class="col-md-4 col-sm-4 col-xs-12">
+              <div class="x_panel tile">
+                <div class="x_title">
+                  <h2>Najprodavaniji artikli</h2>
+                  <ul class="nav navbar-right panel_toolbox">
+                    <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                    </li>
+                    <li><a class="close-link"><i class="fa fa-close"></i></a>
+                    </li>
+                  </ul>
+                  <div class="clearfix"></div>
+                </div>
+                <div class="x_content">
+                  <div class="widget_summary">
+                    <div class="w_left w_25">
+                      <span>Jabuka Jonagold</span>
+                    </div>
+                    <div class="w_center w_55">
+                      <div class="progress">
+                        <div class="progress-bar bg-green" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 66%;">
+                          <span class="sr-only">60% Complete</span>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="w_right w_20">
+                      <span>123k</span>
+                    </div>
+                    <div class="clearfix"></div>
+                  </div>
+                  <div class="widget_summary">
+                    <div class="w_left w_25">
+                      <span>Jabuka Jonagold</span>
+                    </div>
+                    <div class="w_center w_55">
+                      <div class="progress">
+                        <div class="progress-bar bg-green" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 45%;">
+                          <span class="sr-only">60% Complete</span>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="w_right w_20">
+                      <span>53k</span>
+                    </div>
+                    <div class="clearfix"></div>
+                  </div>
+                  <div class="widget_summary">
+                    <div class="w_left w_25">
+                      <span>Jabuka Jonagold</span>
+                    </div>
+                    <div class="w_center w_55">
+                      <div class="progress">
+                        <div class="progress-bar bg-green" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 25%;">
+                          <span class="sr-only">60% Complete</span>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="w_right w_20">
+                      <span>23k</span>
+                    </div>
+                    <div class="clearfix"></div>
+                  </div>
+                  <div class="widget_summary">
+                    <div class="w_left w_25">
+                      <span>Jabuka Jonagold</span>
+                    </div>
+                    <div class="w_center w_55">
+                      <div class="progress">
+                        <div class="progress-bar bg-green" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 5%;">
+                          <span class="sr-only">60% Complete</span>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="w_right w_20">
+                      <span>3k</span>
+                    </div>
+                    <div class="clearfix"></div>
+                  </div>
+                  <div class="widget_summary">
+                    <div class="w_left w_25">
+                      <span>Jabuka Jonagold</span>
+                    </div>
+                    <div class="w_center w_55">
+                      <div class="progress">
+                        <div class="progress-bar bg-green" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 2%;">
+                          <span class="sr-only">60% Complete</span>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="w_right w_20">
+                      <span>1k</span>
+                    </div>
+                    <div class="clearfix"></div>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4 col-sm-4 col-xs-12">
+              <div class="x_panel tile">
+                <div class="x_title">
+                  <h2>Precice</h2>
+                  <ul class="nav navbar-right panel_toolbox">
+                    <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                    </li>
+                    <li><a class="close-link"><i class="fa fa-close"></i></a>
+                    </li>
+                  </ul>
+                  <div class="clearfix"></div>
+                </div>
+                <div class="x_content">
+                  <div class="dashboard-widget-content">
+                    <ul class="quick-list">
+                      <li><i class="fa fa-shopping-cart"></i><a href="narucivanje.html#cart">Korpa</a>
+                      </li>
+                      <li><i class="fa fa-list"></i><a href="#">Najviše naručivani artikli</a>
+                      </li>
+                      <li><i class="fa fa-refresh"></i><a href="sinhronizacija.html#">Sinhronizacija</a> </li>
+                      <li><i class="fa fa-edit"></i><a href="#">Izmena artikala</a>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4 col-sm-4 col-xs-12">
+              <div class="x_panel tile ">
+                <div class="x_title">
+                  <h2>Pomoc</h2>
+                  <ul class="nav navbar-right panel_toolbox">
+                    <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                    </li>
+                    <li><a class="close-link"><i class="fa fa-close"></i></a>
+                    </li>
+                  </ul>
+                  <div class="clearfix"></div>
+                </div>
+                <div class="x_content">
+                  <p>
+                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+                  </p>
+               </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- /page content -->
+        <!-- footer content -->
+        <footer>
+          <div class="pull-left">
+            Copyright ASW <a href="http://www.asw.eu/" target="_blank">asw.eu</a>
+          </div>
+          <div class="pull-right">
+            <img class="footer-logo" src="images/asw_footer_logo.png">
+          </div>
+          <div class="clearfix"></div>
+        </footer>
+        <!-- /footer content -->
+      </div>
+    </div>
+
+
+    <!-- jQuery -->
+    <script src="vendors/jquery/dist/jquery.min.js"></script>
+    <!-- Bootstrap -->
+    <script src="vendors/bootstrap/dist/js/bootstrap.min.js"></script>
+    <!-- FastClick -->
+    <script src="vendors/fastclick/lib/fastclick.js"></script>
+    <!-- NProgress -->
+    <script src="vendors/nprogress/nprogress.js"></script>
+    <!-- bootstrap-progressbar -->
+    <script src="vendors/bootstrap-progressbar/bootstrap-progressbar.min.js"></script>
+
+    <!-- Scripts needed for running chart on index page-->
+      <!-- Flot -->
+    <script src="vendors/Flot/jquery.flot.js"></script>
+    <script src="vendors/Flot/jquery.flot.pie.js"></script>
+    <script src="vendors/Flot/jquery.flot.time.js"></script>
+    <script src="vendors/Flot/jquery.flot.stack.js"></script>
+    <script src="vendors/Flot/jquery.flot.resize.js"></script>
+    <!-- Flot plugins -->
+    <script src="vendors/flot.orderbars/js/jquery.flot.orderBars.js"></script>
+    <script src="vendors/flot-spline/js/jquery.flot.spline.min.js"></script>
+    <script src="vendors/flot.curvedlines/curvedLines.js"></script>
+    <!-- DateJS -->
+    <script src="vendors/DateJS/build/date.js"></script>
+    <!-- ./Scripts needed for running chart on index page-->
+
+    <!-- Custom Theme Scripts -->
+    <script src="js/custom.js"></script>
+
+    <!--theme switcher -->
+    <script src="js/theme-switcher.js"></script>
+
+    <!--full screen mode -->
+    <script src="js/fullscreen-mode.js"></script>
+
+
+  </body>
+</html>

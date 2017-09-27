@@ -1,0 +1,1077 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <!-- Meta, title, CSS, favicons, etc. -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Narucivanje | ASW</title>
+
+    <!-- Bootstrap -->
+    <link href="vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link href="vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <!-- NProgress -->
+    <link href="vendors/nprogress/nprogress.css" rel="stylesheet">
+    <!-- iCheck -->
+    <link href="vendors/iCheck/skins/flat/green.css" rel="stylesheet">
+    <!-- Custom Theme Style -->
+    <link rel="stylesheet" type="text/css" title="blue" href="css/custom.css">
+    <link rel="alternate stylesheet" type="text/css" title="red" href="css/theme1.css">
+    <!--Item groups section-->
+    <link rel="stylesheet" type="text/css" href="css/item_groups_section_css/default.css" />
+  </head>
+
+
+  <body class="nav-md" onload="set_style_from_cookie()">
+    <div class="container body">
+      <div class="main_container">
+        <div class="col-md-3 left_col menu_fixed">
+          <div class="left_col scroll-view">
+            <div class="navbar nav_title" style="border: 0;">
+              <a href="index.html" class="site_title"><img class="brand-logo" src="images/logo-scb.png"></a>
+            </div>
+
+            <div class="clearfix"></div>
+
+            <!-- menu profile quick info -->
+            <div class="profile clearfix">
+              <div class="profile_pic">
+                <img src="images/img.jpg" alt="..." class="img-circle profile_img">
+              </div>
+              <div class="profile_info">
+                <span>Administrator</span>
+                <h2>Petar Petrovic</h2>
+              </div>
+              <div class="clearfix"></div>
+            </div>
+            <!-- /menu profile quick info -->
+
+            <br />
+
+            <!-- sidebar menu -->
+            <div id="sidebar-menu" class="main_menu_side hidden-print main_menu menu_fixed">
+              <div class="menu_section">
+                <ul class="nav side-menu">
+                  <li><a href="index.html"><i class="fa fa-home"></i> Početna</a></li>
+                  <li class="active"><a href="narucivanje.html"><i class="fa fa-list"></i> Naručivanje</a></li>
+                  <li><a href="mesecna_prodaja.html"><i class="fa fa-calendar"></i> Mesecna prodaja</a></li>
+                  <li><a href="ranije_narudzbe.html"><i class="fa fa-history"></i> Ranije narudžbe</a></li>
+                  <li><a href="sinhronizacija.html"><i class="fa fa-refresh"></i> Sinhronizacija</a></li>
+                  <li><a href="administracija_korisnika.html"><i class="fa fa-users"></i> Administracija korisnika</a></li>
+                  <li><a href="korpa.html"><i class="fa fa-shopping-cart"></i> Korpa</a></li>
+
+                </ul>
+              </div>
+            </div>
+            <!-- /sidebar menu -->
+
+            <!-- /menu footer buttons -->
+            <div class="sidebar-footer hidden-small">
+              <div class="dropup">
+                <a class="dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" title="Change theme">
+                  <i class="fa fa-eye" aria-hidden="true"></i>
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                  <li> <a class="theme-switcher-item" onclick="switch_style('blue');return false;" name="theme"  id="blue"> Plava tema </a></li>
+                  <li><a class="theme-switcher-item" onclick="switch_style('red');return false;" name="theme"  id="red"> Crvena tema</a></li>
+                </ul>
+              </div>
+              <a data-toggle="tooltip" data-placement="top" title="Ceo ekran" onclick="toggleFullScreen()">
+                <i class="fa fa-arrows-alt" aria-hidden="true"></i>
+              </a>
+              <a data-toggle="tooltip" data-placement="top" title="Promena lozinke" href="promena_lozinke.html">
+                <i class="fa fa-unlock-alt" aria-hidden="true"></i>
+              </a>
+              <a data-toggle="tooltip" data-placement="top" title="Izloguj se" href="login.html">
+                <i class="fa fa-sign-out" aria-hidden="true"></i>
+              </a>
+            </div>
+            <!-- /menu footer buttons -->
+          </div>
+        </div>
+
+        <!-- top navigation -->
+        <div class="top_nav">
+          <div class="nav_menu">
+            <nav>
+              <div class="nav toggle">
+                <a id="menu_toggle"><i class="fa fa-bars"></i></a>
+              </div>
+
+              <ul class="nav navbar-nav navbar-right">
+                <li class="">
+                  <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                    <img src="images/img.jpg" alt=""><span class="username">Voli d.o.o</span>
+                    <span class=" fa fa-angle-down"></span>
+                  </a>
+                  <ul class="dropdown-menu dropdown-usermenu pull-right">
+
+                    <li><a href="promena_lozinke.html">Promena lozinke</a></li>
+                    <li><a href="login.html"><i class="fa fa-sign-out pull-right"></i> Izloguj se</a></li>
+                  </ul>
+                </li>
+
+                <li role="presentation" class="dropdown">
+                  <a href="javascript:;" class="dropdown-toggle info-number" data-toggle="dropdown" aria-expanded="false">
+                    <i class="fa fa-calendar"></i>
+                  </a>
+                  <ul id="menu1" class="dropdown-menu list-unstyled msg_list" role="menu">
+                    <li><a href="#"><i class="fa fa-list" aria-hidden="true"></i>&nbsp; Najviše naručivani artikli</a>
+                    </li>
+                    <li><a href="#"><i class="fa fa-calendar" aria-hidden="true"></i>&nbsp; Artikli naručivani u poslednjih 90 dana</a>
+                    </li>
+                  </ul>
+                </li>
+
+                <li role="summary">
+
+                  <a href="korpa.html"><i class="fa fa-check"></i> 23 / 13 523 RSD</a>
+
+                </li>
+
+              </ul>
+            </nav>
+          </div>
+        </div>
+        <!-- /top navigation -->
+
+        <!-- page content -->
+        <div class="right_col" role="main">
+          <div class="">
+            <div class="page-title">
+              <div class="title_left">
+                <h3>Naručivanje</h3>
+              </div>
+
+            </div>
+
+            <div class="clearfix"></div>
+
+            <div class="row">
+              <div class="col-md-12 col-sm-12 col-xs-12">
+                  <div class="x_content">
+                    <div class="col-lg-4 col-md-12 col-sm-12 col-xs-12">
+
+                      <div class="x_panel">
+                        <div class="x_title">
+                          <h2>Pretraga artikala</h2>
+                          <ul class="nav navbar-right panel_toolbox">
+                            <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                            </li>
+                            <li><a class="close-link"><i class="fa fa-close"></i></a>
+                            </li>
+                          </ul>
+                          <div class="clearfix"></div>
+                        </div>
+                        <div class="x_content">
+                          <form class="form-horizontal form-label-left">
+                            <div class="form-group">
+                              <label class="control-label col-md-3 label-code" for="">Sifra <span class="required">*</span>
+                              </label>
+                              <div class="col-md-9">
+                                <input type="text" id="" required="required" class="form-control col-md-7 col-xs-12">
+                              </div>
+                            </div>
+                            <div class="form-group">
+                              <label class="control-label col-md-3 label-name" for="">Naziv <span class="required">*</span>
+                              </label>
+                              <div class="col-md-9">
+                                <input type="text" id="" name="" required="required" class="form-control col-md-7 col-xs-12">
+                              </div>
+                            </div>
+                            <div class="form-group">
+                              <label class="control-label col-md-3 col-sm-3 col-xs-12">Brend</label>
+                              <div class="col-md-9 col-sm-9 col-xs-12">
+                                <select class="form-control">
+                                  <option>Izaberi</option>
+                                  <option>Opcija</option>
+                                  <option>Opcija</option>
+                                  <option>Opcija</option>
+                                  <option>Opcija</option>
+                                </select>
+                              </div>
+                            </div>
+                            <div class="form-group">
+                              <label class="control-label col-md-3 col-sm-3 col-xs-12">Robna grupa </label>
+                              <div class="col-md-9 col-sm-9 col-xs-12">
+                                <div class="input-group">
+                                  <span class="input-group-btn">
+                                    <button onclick="toogleShowHideElement('groups')" id="group_toogle" class="btn btn-warning" type="button"><i class="fa fa-search-plus"></i> </button>
+                                  </span>
+                                  <input type="text" class="form-control" placeholder="Nedostupno..." disabled="disabled">
+                                </div><!-- /input-group -->
+
+                              </div>
+                            </div>
+                          </form>
+                          <div class="col-md-12">
+                            <button type="submit" class="btn btn-default pull-right">Pretraga</button>
+                          </div>
+                        </div>
+                        <div id="groups" style="display: none">
+                          <div class="x_title">
+                            <h2>Robne grupe</h2>
+
+                            <div class="clearfix"></div>
+                          </div>
+                          <div class="x_content">
+                            <!--Item groups-->
+                            <div id="dl-menu" class="dl-menuwrapper">
+                              <button id="dlTrigger" style="display: none;" class="dl-trigger">Robne Grupe</button>
+                              <ul class="dl-menu">
+                                <li>
+                                  <a href="#">Kategorija - Robna Grupa 1</a>
+                                  <ul class="dl-submenu">
+                                    <li>
+                                      <a href="#">Kategorija - Robna Grupa 1.1</a>
+                                      <ul class="dl-submenu">
+                                        <li><a href="#">Kategorija - Robna Grupa 1.1.1</a></li>
+                                        <li><a href="#">Kategorija - Robna Grupa 1.1.2</a></li>
+                                        <li><a href="#">Kategorija - Robna Grupa 1.1.3</a></li>
+                                        <li><a href="#">Kategorija - Robna Grupa 1.1.4</a></li>
+                                        <li><a href="#">Kategorija - Robna Grupa 1.1.5</a></li>
+                                        <li><a href="#">Kategorija - Robna Grupa 1.1.6</a></li>
+                                      </ul>
+                                    </li>
+                                    <li>
+                                      <a href="#">Kategorija - Robna Grupa 1.2</a>
+                                      <ul class="dl-submenu">
+                                        <li><a href="#">Kategorija - Robna Grupa 1.2.1</a></li>
+                                        <li><a href="#">Kategorija - Robna Grupa 1.2.2</a></li>
+                                        <li><a href="#">Kategorija - Robna Grupa 1.2.3</a></li>
+                                      </ul>
+                                    </li>
+                                    <li>
+                                      <a href="#">Kategorija - Robna Grupa 1.3</a>
+                                      <ul class="dl-submenu">
+                                        <li><a href="#">Kategorija - Robna Grupa 1.3.1</a></li>
+                                        <li><a href="#">Kategorija - Robna Grupa 1.3.2</a></li>
+                                      </ul>
+                                    </li>
+                                  </ul>
+                                </li>
+                                <li>
+                                  <a href="#">Kategorija - Robna Grupa 2</a>
+                                  <ul class="dl-submenu">
+                                    <li><a href="#">Kategorija - Robna Grupa 2.2</a></li>
+                                    <li><a href="#">Kategorija - Robna Grupa 2.3</a></li>
+                                    <li><a href="#">Kategorija - Robna Grupa 2.4</a></li>
+                                    <li><a href="#">Kategorija - Robna Grupa 2.5</a></li>
+                                  </ul>
+                                </li>
+                                <li>
+                                  <a href="#">Kategorija - Robna Grupa 3</a>
+                                  <ul class="dl-submenu">
+                                    <li>
+                                      <a href="#">Kategorija - Robna Grupa 3.1</a>
+                                      <ul class="dl-submenu">
+                                        <li><a href="#">Kategorija - Robna Grupa 3.1.1</a></li>
+                                        <li><a href="#">Kategorija - Robna Grupa 3.1.2</a></li>
+                                        <li><a href="#">Kategorija - Robna Grupa 3.1.3</a></li>
+                                        <li><a href="#">Kategorija - Robna Grupa 3.1.4</a></li>
+                                      </ul>
+                                    </li>
+                                    <li><a href="#">Kategorija - Robna Grupa 3.2</a></li>
+                                    <li><a href="#">Kategorija - Robna Grupa 3.3</a></li>
+                                    <li><a href="#">Kategorija - Robna Grupa 3.4</a></li>
+                                  </ul>
+                                </li>
+                              </ul>
+                            </div><!-- /dl-menuwrapper -->
+
+
+                            <!--new gruops end-->
+
+                          </div>
+                        </div>
+                      </div>
+                      <!-- shortcut box-->
+                      <div class="x_panel">
+                        <div class="x_title">
+                          <h2>Prečice</h2>
+                          <ul class="nav navbar-right panel_toolbox">
+                            <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                            </li>
+                            <li><a class="close-link"><i class="fa fa-close"></i></a>
+                            </li>
+                          </ul>
+                          <div class="clearfix"></div>
+                        </div>
+                        <div class="x_content">
+
+                          <ul class="quick-list">
+                            <li><a href="#">Najviše naručivani artikli</a>
+                            </li>
+                            <li><a href="#">Artikli naručivani u poslednjih 90 dana</a>
+                            </li>
+
+                          </ul>
+
+                        </div>
+                      </div>
+                      <!-- ./shortcut box-->
+                    </div>
+                    <div class="col-lg-8 col-md-12 col-sm-12 col-xs-12">
+                      <div class="x_panel">
+                        <div class="x_title">
+                          <h2>Lista artikala</h2>
+                          <ul class="nav navbar-right panel_toolbox">
+                            <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                            </li>
+                            <li><a class="close-link"><i class="fa fa-close"></i></a>
+                            </li>
+                          </ul>
+                          <div class="clearfix"></div>
+                        </div>
+                        <div class="x_content">
+                          <div class="table-desktop table-responsive">
+                            <table class="asw-order-table table table-striped jambo_table bulk_action">
+                              <thead>
+                              <tr class="headings">
+                                <th class="bulk-actions " >
+                                  <button onclick="setZeroValueAtElements('quantityEdit1', 'quantityEdit2', 'quantityEdit3', 'quantityEdit4', 'quantityEdit5', 'quantityEdit6', 'quantityEdit7', 'modalQuantity1', 'modalQuantity2', 'modalQuantity3', 'modalQuantity4')" type="button" data-toggle="tooltip" data-placement="top" title="Dodaj sve oznacene proizvode u korpu" class="btn btn-success btn-xs btn-add-all"><i class="fa fa-shopping-cart"></i> <i class="fa fa-check"></i></button>
+                                </th>
+                                <th class="column-title">
+                                </th>
+                                <th>Slika </th>
+                                <th>Sifra </th>
+                                <th>Naziv </th>
+                                <th>Veličina pakovanja </th>
+                                <th>VP Cena </th>
+                                <th>Količina </th>
+                                <th class="no-link last"><span class="nobr">Opcije</span>
+                                </th>
+                              </tr>
+                              </thead>
+
+                              <tbody>
+                              <tr class="even pointer">
+                                <td class="a-center ">
+                                  <!--<i class="fa fa-check"></i>-->
+                                  <div style="visibility: hidden">
+                                    <input id="narucivanjeCheckBox1" type="checkbox" class="flat" name="table_records" disabled>
+                                  </div>
+                                </td>
+                                <td class=" "><img class="item-image" src="https://media.licdn.com/mpr/mpr/shrink_200_200/AAEAAQAAAAAAAAQeAAAAJGQyZGIyMWI5LWMyODQtNGRmMy1hNmQxLWRlZjZlNjQzZjIwMQ.png"> </td>
+                                <td class=" "><a class="item-name" href="#" data-toggle="collapse" data-target="#collapseme"> 31000 </a></td>
+                                <td class=" "> <a class="item-name" href="#" data-toggle="collapse" data-target="#collapseme">JABUKA JONAGOLD I KLASA</a> </td>
+                                <td class=" ">001</td>
+                                <td class=" ">0.41</td>
+                                <td class=" ">
+                                  <div class="input-variety input-group">
+                                    <input onchange="onQuantityChange('narucivanjeCheckBox1', id, '')" id="quantityEdit1" class="form-control input-sm input-number" placeholder="0" disabled>
+                                    <span class="input-group-btn">
+                                <button class="btn btn-xs btn-success" type="button" data-toggle="modal" data-target="#quantity2"><i class="fa fa-plus"></i> </button>
+                              </span>
+                                  </div>
+                                  <!-- Quantity Modal -->
+                                  <div class="modal fade" id="quantity2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog modal-sm" role="document">
+                                      <div class="modal-content">
+                                        <div class="modal-header">
+                                          <h5 class="modal-title" id="exampleModalLabel">JABUKA JONAGOLD I KLASA</h5>
+                                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                          </button>
+                                        </div>
+                                        <div class="modal-body">
+                                          <div class="table-responsive">
+                                            <table class="quantity-table table">
+                                              <tbody>
+                                              <tr>
+                                                <td class="col-md-6">Velicina: 32</td>
+                                                <td class="col-md-6"><div second-id="modalQuantity1" class="xxx-popup xxx" data-name="quantity"></div></td>
+                                              </tr>
+                                              <tr>
+                                                <td>Velicina: 34</td>
+                                                <td><div second-id="modalQuantity2" class="xxx-popup xxx" data-name="quantity"></div></td>
+                                              </tr>
+                                              <tr>
+                                                <td>Velicina: 36</td>
+                                                <td><div second-id="modalQuantity3" class="xxx-popup xxx" data-name="quantity"></div></td>
+                                              </tr>
+                                              <tr>
+                                                <td>Velicina: 39</td>
+                                                <td><div second-id="modalQuantity4" class="xxx-popup xxx" data-name="quantity"></div></td>
+                                              </tr>
+                                              </tbody>
+                                            </table>
+                                          </div>
+                                        </div>
+                                        <div class="modal-footer">
+                                          <!--<button onclick="setValueAtElement('modalQuantity1', '0'), setValueAtElement('modalQuantity2', '0'), setValueAtElement('modalQuantity3', '0'), setValueAtElement('modalQuantity4', '0'), setValueAtElement('quantityEdit1', '0') " type="button" class="btn btn-secondary pull-left" data-dismiss="modal">Obrisi kolicine</button>-->
+                                          <button onclick="setZeroValueAtElements('modalQuantity1', 'modalQuantity2', 'modalQuantity3', 'modalQuantity4'), setValueOnQuantityElement('quantityEdit1','0')" type="button" class="btn btn-secondary pull-left" data-dismiss="modal">Obrisi kolicine</button>
+                                          <button onclick="setValueOnQuantityElement('quantityEdit1', sumValueAtElements('modalQuantity1', 'modalQuantity2', 'modalQuantity3', 'modalQuantity4'))"  type="button" class="btn btn-primary" data-dismiss="modal">Potvrdi</button>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <!--./End Quantity modal-->
+                                </td>
+                                <td class=" last">
+                                  <div class="btn-group-vertical" role="group">
+                                    <button type="button" class="btn btn-success btn-sm">Dodaj u korpu</button>
+                                  </div>
+
+                                </td>
+                              </tr>
+                              <tr id="collapseme" class="collapse out">
+                                <td colspan="8">
+                                  <div class="col-md-12">
+                                    <!--Item description-->
+                                    <div class="col-md-12 col-sm-12 col-xs-12 profile_details">
+                                      <div class="well profile_view">
+                                        <div class="col-sm-12">
+                                          <h4 class="brief">JABUKA JONAGOLD I KLASA</h4>
+                                          <div class="left col-xs-10 text-center">
+                                          <ul class="list-unstyled timeline">
+                                            <!--<div class="product_price">
+                                              <h1 class="price">3244</h1>
+                                              <span class="price-tax">sifra</span>
+                                              <br>
+                                            </div>-->
+                                            <li>
+                                              <div class="block">
+                                                <div class="tags">
+                                                  <a href="" class="tag">
+                                                    <span>Opis artikla</span>
+                                                  </a>
+                                                </div>
+                                                <div class="block_content">
+                                                  <h2 class="title">
+                                                    Slatka
+                                                  </h2>
+
+                                                </div>
+                                              </div>
+                                            </li>
+                                            <li>
+                                              <div class="block">
+                                                <div class="tags">
+                                                  <a href="" class="tag">
+                                                    <span>Cena sa popustom</span>
+                                                  </a>
+                                                </div>
+                                                <div class="block_content">
+                                                  <h2 class="title">
+                                                    43
+                                                  </h2>
+
+                                                </div>
+                                              </div>
+                                            </li>
+                                            <li>
+                                              <div class="block">
+                                                <div class="tags">
+                                                  <a href="" class="tag">
+                                                    <span>Zaliha</span>
+                                                  </a>
+                                                </div>
+                                                <div class="block_content">
+                                                  <h2 class="title">
+                                                    22
+                                                    <a tabindex="0"
+                                                       class="btn btn-xs btn-warning"
+                                                       role="button"
+                                                       data-html="true"
+                                                       data-toggle="popover"
+                                                       data-trigger="focus"
+                                                       title="<b>Stanje zaliha</b>"
+                                                       data-content="<div><p>Velicina: 36 - Kolicina: 20</p><p>Velicina: 36 - Kolicina: 20</p><p>Velicina: 36 - Kolicina: 20</p></div>"><i class="fa fa-info-circle"></i> </a>
+                                                  </h2>
+
+                                                </div>
+                                              </div>
+                                            </li>
+
+                                          </ul>
+                                        </div>
+                                          <div class="right col-xs-2 text-center pull-right">
+                                            <a href="#" data-toggle="modal" data-target="#imageModal"><img src="https://media.licdn.com/mpr/mpr/shrink_200_200/AAEAAQAAAAAAAAQeAAAAJGQyZGIyMWI5LWMyODQtNGRmMy1hNmQxLWRlZjZlNjQzZjIwMQ.png" alt="" class="img-circle img-responsive"></a>
+                                            <!-- Image Modal -->
+                                            <div class="modal fade" id="imageModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                              <div class="modal-dialog" role="document">
+                                                <div class="modal-content">
+                                                  <div class="modal-header">
+                                                    <h5 class="modal-title" id="exampleModalLabel">Jabuka Jonagold</h5>
+                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                      <span aria-hidden="true">&times;</span>
+                                                    </button>
+                                                  </div>
+                                                  <div class="modal-body">
+                                                    <img src="https://media.licdn.com/mpr/mpr/shrink_200_200/AAEAAQAAAAAAAAQeAAAAJGQyZGIyMWI5LWMyODQtNGRmMy1hNmQxLWRlZjZlNjQzZjIwMQ.png">
+                                                  </div>
+                                                  <div class="modal-footer">
+                                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Zatvori</button>
+                                                  </div>
+                                                </div>
+                                              </div>
+                                            </div>
+                                            <!--./End Image modal-->
+                                          </div>
+                                        </div>
+
+                                      </div>
+                                    </div>
+                                    <!--./ Item description-->
+                                  </div>
+                                </td>
+                              </tr>
+                              <tr class="odd pointer">
+                                <td class="a-center ">
+                                  <!--<i class="fa fa-check"></i>-->
+                                  <div style="visibility: hidden">
+                                    <input id="narucivanjeCheckBox2" type="checkbox" class="flat" name="table_records" disabled>
+                                  </div>
+                                </td>
+                                <td class=" "><img class="item-image" src="https://media.licdn.com/mpr/mpr/shrink_200_200/AAEAAQAAAAAAAAQeAAAAJGQyZGIyMWI5LWMyODQtNGRmMy1hNmQxLWRlZjZlNjQzZjIwMQ.png"> </td>
+                                <td class=" "><a class="item-name" href="#" data-toggle="collapse" data-target="#collapse2">31000 </a></td>
+                                <td class=" "><a class="item-name" href="#" data-toggle="collapse" data-target="#collapse2">JABUKA JONAGOLD I KLASA</a></td>
+                                <td class=" ">001</td>
+                                <td class=" ">0.41</td>
+                                <td class=" ">
+                                  <div second-id="quantityEdit2" oninput="onQuantityChange('narucivanjeCheckBox2', 'quantityEdit2', 'closeBtn2')" onchange="onQuantityChange('narucivanjeCheckBox2', 'quantityEdit2', 'closeBtn2')" class="xxx" data-name="quantity"></div>
+                                  <button onclick="setValueOnQuantityElement('quantityEdit2', '0')" style="visibility: hidden" id="closeBtn2" class="btn btn-xs btn-danger"><i class="fa fa-close"></i> </button>
+                                </td>
+                                <td class=" last">
+                                  <div class="btn-group-vertical" role="group">
+                                    <button type="button" class="btn btn-success btn-sm">Dodaj u korpu</button>
+                                  </div>
+
+                                </td>
+                              </tr>
+                              <tr id="collapse2" class="collapse out">
+                                <td colspan="8">
+                                  <div class="col-md-12">
+                                    <!--Item description-->
+                                    <div class="col-md-12 col-sm-12 col-xs-12 profile_details">
+                                      <div class="well profile_view">
+                                        <div class="col-sm-12">
+                                          <h4 class="brief">JABUKA JONAGOLD I KLASA</h4>
+                                          <div class="left col-xs-10 text-center">
+                                            <ul class="list-unstyled timeline">
+                                              <!--<div class="product_price">
+                                                <h1 class="price">3244</h1>
+                                                <span class="price-tax">sifra</span>
+                                                <br>
+                                              </div>-->
+
+                                              <li>
+                                                <div class="block">
+                                                  <div class="tags">
+                                                    <a href="" class="tag">
+                                                      <span>Varijanta</span>
+                                                    </a>
+                                                  </div>
+                                                  <div class="block_content">
+                                                    <h2 class="title">
+                                                      0001
+                                                    </h2>
+
+                                                  </div>
+                                                </div>
+                                              </li>
+                                              <li>
+                                                <div class="block">
+                                                  <div class="tags">
+                                                    <a href="" class="tag">
+                                                      <span>Naziv</span>
+                                                    </a>
+                                                  </div>
+                                                  <div class="block_content">
+                                                    <h2 class="title">
+                                                      Jabuka Jonagold
+                                                    </h2>
+
+                                                  </div>
+                                                </div>
+                                              </li>
+                                              <li>
+                                                <div class="block">
+                                                  <div class="tags">
+                                                    <a href="" class="tag">
+                                                      <span>Cena sa popustom</span>
+                                                    </a>
+                                                  </div>
+                                                  <div class="block_content">
+                                                    <h2 class="title">
+                                                      43
+                                                    </h2>
+
+                                                  </div>
+                                                </div>
+                                              </li>
+                                              <li>
+                                                <div class="block">
+                                                  <div class="tags">
+                                                    <a href="" class="tag">
+                                                      <span>Zaliha</span>
+                                                    </a>
+                                                  </div>
+                                                  <div class="block_content">
+                                                    <h2 class="title">
+                                                      22
+                                                    </h2>
+
+                                                  </div>
+                                                </div>
+                                              </li>
+                                              <li>
+                                                <div class="block">
+                                                  <div class="tags">
+                                                    <a href="" class="tag">
+                                                      <span>Opis artikla</span>
+                                                    </a>
+                                                  </div>
+                                                  <div class="block_content">
+                                                    <h2 class="title">
+                                                      Slatka
+                                                    </h2>
+
+                                                  </div>
+                                                </div>
+                                              </li>
+                                            </ul>
+                                          </div>
+                                          <div class="right col-xs-2 text-center pull-right">
+                                            <a href="#" data-toggle="modal" data-target="#imageModal2"><img src="https://media.licdn.com/mpr/mpr/shrink_200_200/AAEAAQAAAAAAAAQeAAAAJGQyZGIyMWI5LWMyODQtNGRmMy1hNmQxLWRlZjZlNjQzZjIwMQ.png" alt="" class="img-circle img-responsive"></a>
+                                            <!-- Image Modal -->
+                                            <div class="modal fade" id="imageModal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                              <div class="modal-dialog" role="document">
+                                                <div class="modal-content">
+                                                  <div class="modal-header">
+                                                    <h5 class="modal-title" id="exampleModalLabel">Jabuka Jonagold</h5>
+                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                      <span aria-hidden="true">&times;</span>
+                                                    </button>
+                                                  </div>
+                                                  <div class="modal-body">
+                                                    <img src="https://media.licdn.com/mpr/mpr/shrink_200_200/AAEAAQAAAAAAAAQeAAAAJGQyZGIyMWI5LWMyODQtNGRmMy1hNmQxLWRlZjZlNjQzZjIwMQ.png">
+                                                  </div>
+                                                  <div class="modal-footer">
+                                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Zatvori</button>
+                                                  </div>
+                                                </div>
+                                              </div>
+                                            </div>
+                                            <!--./End Image modal-->
+                                          </div>
+                                        </div>
+
+                                      </div>
+                                    </div>
+                                    <!--./ Item description-->
+                                  </div>
+                                </td>
+                              </tr>
+                              <tr class="even pointer">
+                                <td class="a-center ">
+                                  <!--<i class="fa fa-check"></i>-->
+                                  <div style="visibility: hidden">
+                                  <input id="narucivanjeCheckBox3" type="checkbox" class="flat" name="table_records" disabled>
+                                  </div>
+                                </td>
+                                <td class=" "><img class="item-image" src="https://media.licdn.com/mpr/mpr/shrink_200_200/AAEAAQAAAAAAAAQeAAAAJGQyZGIyMWI5LWMyODQtNGRmMy1hNmQxLWRlZjZlNjQzZjIwMQ.png"> </td>
+                                <td class=" ">31000 </td>
+                                <td class=" ">JABUKA JONAGOLD I KLASA</td>
+                                <td class=" ">001</td>
+                                <td class=" ">0.41</td>
+                                <td class=" ">
+                                  <div second-id="quantityEdit3" oninput="onQuantityChange('narucivanjeCheckBox3', 'quantityEdit3', 'closeBtn3')" onchange="onQuantityChange('narucivanjeCheckBox3', 'quantityEdit3', 'closeBtn3')" class="xxx" data-name="quantity"></div>
+                                  <button onclick="setValueOnQuantityElement('quantityEdit3', '0')" style="visibility: hidden" id="closeBtn3" class="btn btn-xs btn-danger"><i class="fa fa-close"></i> </button>
+
+                                </td>
+                                <td class=" last">
+                                  <div class="btn-group-vertical" role="group">
+                                    <button type="button" class="btn btn-success btn-sm">Dodaj u korpu</button>
+                                  </div>
+
+                                </td>
+                              </tr>
+                              <tr class="odd pointer">
+                                <td class="a-center ">
+                                  <!--<i class="fa fa-check"></i>-->
+                                  <div style="visibility: hidden">
+                                  <input id="narucivanjeCheckBox4" type="checkbox" class="flat" name="table_records" disabled>
+                                  </div>
+                                </td>
+                                <td class=" "><img class="item-image" src="https://media.licdn.com/mpr/mpr/shrink_200_200/AAEAAQAAAAAAAAQeAAAAJGQyZGIyMWI5LWMyODQtNGRmMy1hNmQxLWRlZjZlNjQzZjIwMQ.png"> </td>
+                                <td class=" ">31000 </td>
+                                <td class=" ">JABUKA JONAGOLD I KLASA</td>
+                                <td class=" ">001</td>
+                                <td class=" ">0.41</td>
+                                <td class=" ">
+                                  <div second-id="quantityEdit4" oninput="onQuantityChange('narucivanjeCheckBox4', 'quantityEdit4', 'closeBtn4')" onchange="onQuantityChange('narucivanjeCheckBox4', 'quantityEdit4', 'closeBtn4')" class="xxx" data-name="quantity"></div>
+                                  <button onclick="setValueOnQuantityElement('quantityEdit4', '0')" style="visibility: hidden" id="closeBtn4" class="btn btn-xs btn-danger"><i class="fa fa-close"></i> </button>
+
+                                </td>
+                                <td class=" last">
+                                  <div class="btn-group-vertical" role="group">
+                                    <button type="button" class="btn btn-success btn-sm">Dodaj u korpu</button>
+                                  </div>
+
+                                </td>
+                              </tr>
+                              <tr class="even pointer">
+                                <td class="a-center ">
+                                  <!--<i class="fa fa-check"></i>-->
+                                  <div style="visibility: hidden">
+                                  <input id="narucivanjeCheckBox5" type="checkbox" class="flat" name="table_records" disabled>
+                                  </div>
+                                </td>
+                                <td class=" "><img class="item-image" src="https://media.licdn.com/mpr/mpr/shrink_200_200/AAEAAQAAAAAAAAQeAAAAJGQyZGIyMWI5LWMyODQtNGRmMy1hNmQxLWRlZjZlNjQzZjIwMQ.png"> </td>
+                                <td class=" ">31000 </td>
+                                <td class=" ">JABUKA JONAGOLD I KLASA</td>
+                                <td class=" ">001</td>
+                                <td class=" ">0.41</td>
+                                <td class=" ">
+                                  <div second-id="quantityEdit5" oninput="onQuantityChange('narucivanjeCheckBox5', 'quantityEdit5', 'closeBtn5')" onchange="onQuantityChange('narucivanjeCheckBox5', 'quantityEdit5', 'closeBtn5')" class="xxx" data-name="quantity"></div>
+                                  <button onclick="setValueOnQuantityElement('quantityEdit5', '0')" style="visibility: hidden" id="closeBtn5" class="btn btn-xs btn-danger"><i class="fa fa-close"></i> </button>
+
+                                </td>
+                                <td class=" last">
+                                  <div class="btn-group-vertical" role="group">
+                                    <button type="button" class="btn btn-success btn-sm">Dodaj u korpu</button>
+                                  </div>
+
+                                </td>
+                              </tr>
+                              <tr class="odd pointer">
+                                <td class="a-center ">
+                                  <!--<i class="fa fa-check"></i>-->
+                                  <div style="visibility: hidden">
+                                  <input id="narucivanjeCheckBox6" type="checkbox" class="flat" name="table_records" disabled>
+                                  </div>
+                                </td>
+                                <td class=" "><img class="item-image" src="https://media.licdn.com/mpr/mpr/shrink_200_200/AAEAAQAAAAAAAAQeAAAAJGQyZGIyMWI5LWMyODQtNGRmMy1hNmQxLWRlZjZlNjQzZjIwMQ.png"> </td>
+                                <td class=" ">31000 </td>
+                                <td class=" ">JABUKA JONAGOLD I KLASA</td>
+                                <td class=" ">001</td>
+                                <td class=" ">0.41</td>
+                                <td class=" ">
+                                  <div second-id="quantityEdit6" oninput="onQuantityChange('narucivanjeCheckBox6', 'quantityEdit6', 'closeBtn6')" onchange="onQuantityChange('narucivanjeCheckBox6', 'quantityEdit6', 'closeBtn6')" class="xxx" data-name="quantity"></div>
+                                  <button onclick="setValueOnQuantityElement('quantityEdit6', '0')" style="visibility: hidden" id="closeBtn6" class="btn btn-xs btn-danger"><i class="fa fa-close"></i> </button>
+
+                                </td>
+                                <td class=" last">
+                                  <div class="btn-group-vertical" role="group">
+                                    <button type="button" class="btn btn-success btn-sm">Dodaj u korpu</button>
+                                  </div>
+
+                                </td>
+                              </tr>
+                              <tr class="odd pointer">
+                                <td class="a-center ">
+                                  <!--<i class="fa fa-check"></i>-->
+                                  <div style="visibility: hidden">
+                                  <input id="narucivanjeCheckBox7" type="checkbox" class="flat" name="table_records" disabled>
+                                  </div>
+                                </td>
+                                <td class=" "><img class="item-image" src="https://media.licdn.com/mpr/mpr/shrink_200_200/AAEAAQAAAAAAAAQeAAAAJGQyZGIyMWI5LWMyODQtNGRmMy1hNmQxLWRlZjZlNjQzZjIwMQ.png"> </td>
+                                <td class=" ">31000 </td>
+                                <td class=" ">JABUKA JONAGOLD I KLASA</td>
+                                <td class=" ">001</td>
+                                <td class=" ">0.41</td>
+                                <td class=" ">
+                                  <div second-id="quantityEdit7" oninput="onQuantityChange('narucivanjeCheckBox7', 'quantityEdit7', 'closeBtn7')" onchange="onQuantityChange('narucivanjeCheckBox7', 'quantityEdit7', 'closeBtn7')" class="xxx" data-name="quantity"></div>
+                                  <button onclick="setValueOnQuantityElement('quantityEdit7', '0')" style="visibility: hidden" id="closeBtn7" class="btn btn-xs btn-danger"><i class="fa fa-close"></i> </button>
+
+                                </td>
+                                <td class=" last">
+                                  <div class="btn-group-vertical" role="group">
+                                    <button type="button" class="btn btn-success btn-sm">Dodaj u korpu</button>
+                                  </div>
+
+                                </td>
+                              </tr>
+                              </tbody>
+                            </table>
+                          </div>
+                          <div class="table-mobile table-responsive">
+                            <table class="table table-striped jambo_table bulk_action">
+                              <thead>
+
+                              </thead>
+                              <tbody>
+                              <tr class="headings">
+                                <th class="bulk-actions " >
+                                  <button onclick="setZeroValueAtElements('quantityEditMobile1', 'quantityEditMobile2', 'quantityEditMobile3', 'quantityEditMobile4', 'quantityEditMobile5', 'quantityEditMobile6', 'modalQuantityMobile1', 'modalQuantityMobile2', 'modalQuantityMobile3', 'modalQuantityMobile4')" type="button" title="Dodaj sve oznacene proizvode u korpu" class="btn btn-success btn-sm btn-add-all"><i class="fa fa-shopping-cart"></i> <i class="fa fa-check"></i> Dodaj oznacene artikle u korpu</button>
+                                </th>
+                              <tr class="even pointer">
+                                <td class="a-center ">
+                                  <div class="mobile-check">
+                                    <input id="narucivanjeCheckBoxMobile1" type="checkbox" class="flat" name="table_records" disabled>
+                                  </div>
+                                  <button type="button" class="btn btn-success btn-sm pull-right" data-toggle="collapse" data-target="#collapseme">Dodaj u Korpu</button>
+                                  <button class="btn btn-sm btn-default" data-toggle="modal" data-target="#myModal">Prikazi Sliku</button>
+                                </td>
+                                <!-- Image Modal -->
+                                <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                  <div class="modal-dialog" role="document">
+                                    <div class="modal-content">
+                                      <div class="modal-header">
+                                        <h5 class="modal-title" id="exampleModalLabel">Air Max Patike</h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                          <span aria-hidden="true">&times;</span>
+                                        </button>
+                                      </div>
+                                      <div class="modal-body mobile-image-modal">
+                                        <img src="https://media.licdn.com/mpr/mpr/shrink_200_200/AAEAAQAAAAAAAAQeAAAAJGQyZGIyMWI5LWMyODQtNGRmMy1hNmQxLWRlZjZlNjQzZjIwMQ.png">
+                                      </div>
+                                      <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Zatvori</button>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                                <!--./End Image modal-->
+                                <td class=" "><span class="pull-left">Sifra</span><span class="pull-right">31000 </span></td>
+                                <td class=" "><span class="pull-left">Naziv</span><span class="pull-right">JABUKA JONAGOLD I KLASA</span></td>
+                                <td class=" "><span class="pull-left">Velicina pakovanja</span><span class="pull-right">0.01</span></td>
+                                <td class=" "><span class="pull-left">Iznos</span><span class="pull-right">0.41</span></td>
+                                <td class=" "><span class="pull-left">Kolicina  <a tabindex="0" class="btn btn-sm btn-warning" role="button" data-placement="right" data-html="true" data-toggle="popover" data-trigger="focus" title="" data-content="<div><p>Velicina: 36 - Kolicina: 20</p><p>Velicina: 36 - Kolicina: 20</p><p>Velicina: 36 - Kolicina: 20</p></div>" data-original-title="<b>Stanje zaliha</b>"><i class="fa fa-info-circle"></i> </a></span>
+                                  <span class="pull-right">
+                            <div class="input-variety input-group">
+                              <input onchange="onQuantityChange('narucivanjeCheckBoxMobile1', id, '')" id="quantityEditMobile1" class="form-control input-sm input-number" placeholder="0" disabled>
+                              <span class="input-group-btn">
+                                <button class="btn btn-sm btn-success" type="button" data-toggle="modal" data-target="#quantity4"><i class="fa fa-plus"></i> </button>
+                              </span>
+                            </div>
+                                  <!-- Quantity Modal -->
+                            <div class="modal fade" id="quantity4" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                              <div class="modal-dialog modal-sm" role="document">
+                                <div class="modal-content">
+                                  <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLabel">JABUKA JONAGOLD I KLASA</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                      <span aria-hidden="true">&times;</span>
+                                    </button>
+                                  </div>
+                                  <div class="modal-body image-modal">
+                                    <div class="table-responsive">
+                                      <table class="mobile-quantity quantity-table table">
+                                        <tbody>
+                                        <tr>
+                                          <td class="col-md-6">Velicina: 32</td>
+                                          <td class="col-md-6"><div second-id="modalQuantityMobile1" class="xxx" data-name="quantity"></div></td>
+                                        </tr>
+                                        <tr>
+                                          <td>Velicina: 34</td>
+                                          <td><div second-id="modalQuantityMobile2" class="xxx" data-name="quantity"></div></td>
+                                        </tr>
+                                        <tr>
+                                          <td>Velicina: 36</td>
+                                          <td><div second-id="modalQuantityMobile3" class="xxx" data-name="quantity"></div></td>
+                                        </tr>
+                                        <tr>
+                                          <td>Velicina: 39</td>
+                                          <td><div second-id="modalQuantityMobile4" class="xxx" data-name="quantity"></div></td>
+                                        </tr>
+                                        </tbody>
+                                      </table>
+                                    </div>
+                                  </div>
+                                  <div class="modal-footer">
+                                    <button onclick="setZeroValueAtElements('modalQuantityMobile1', 'modalQuantityMobile2', 'modalQuantityMobile3', 'modalQuantityMobile4'), setValueOnQuantityElement('quantityEditMobile1','0')" type="button" class="btn btn-secondary pull-left" data-dismiss="modal">Obrisi kolicine</button>
+                                    <button onclick="setValueOnQuantityElement('quantityEditMobile1', sumValueAtElements('modalQuantityMobile1', 'modalQuantityMobile2', 'modalQuantityMobile3', 'modalQuantityMobile4'))"  type="button" class="btn btn-primary" data-dismiss="modal">Potvrdi</button>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                                  <!--./End Quantity modal-->
+                                </td>
+
+                              </tr>
+                              <tr class="odd pointer">
+                                <td class="a-center ">
+                                  <!--TODO place check box on right position-->
+                                  <div class="mobile-check">
+                                    <input id="narucivanjeCheckBoxMobile2" type="checkbox" class="flat" name="table_records" disabled>
+                                  </div>
+                                  <button type="button" class="btn btn-success btn-sm pull-right" data-toggle="collapse" data-target="#collapseme">Dodaj u Korpu</button>
+                                  <button class="btn btn-sm btn-default" data-toggle="modal" data-target="#myModal">Prikazi Sliku</button>
+                                </td>
+                                <td class=" "><span class="pull-left">Sifra</span><span class="pull-right">31000 </span></td>
+                                <td class=" "><span class="pull-left">Naziv</span><span class="pull-right">JABUKA JONAGOLD I KLASA</span></td>
+                                <td class=" "><span class="pull-left">Velicina pakovanja</span><span class="pull-right">0.01</span></td>
+                                <td class=" "><span class="pull-left">Iznos</span><span class="pull-right">0.41</span></td>
+                                <td class=" ">
+                                  <span class="pull-left">Kolicina</span>
+                                  <button onclick="setValueOnQuantityElement('quantityEditMobile2', '0')" style="visibility: hidden" id="closeBtnMobile2" class="btn btn-xs btn-danger pull-right"><i class="fa fa-close"></i> </button>
+                                  <div second-id="quantityEditMobile2" oninput="onQuantityChange('narucivanjeCheckBoxMobile2', 'quantityEditMobile2', 'closeBtnMobile2')" onchange="onQuantityChange('narucivanjeCheckBoxMobile2', 'quantityEditMobile2', 'closeBtnMobile2')" class="mobile-xxx xxx pull-right" data-name="quantity"></div>
+
+                                  <!--<div class="xxx pull-right" data-name="quantity"></div>-->
+                                </td>
+
+                              </tr>
+                              <tr class="even pointer">
+                                <td class="a-center ">
+                                  <!--TODO place check box on right position-->
+                                  <div class="mobile-check">
+                                    <input id="narucivanjeCheckBoxMobile3" type="checkbox" class="flat" name="table_records" disabled>
+                                  </div>
+                                  <button type="button" class="btn btn-success btn-sm pull-right" data-toggle="collapse" data-target="#collapseme">Dodaj u Korpu</button>
+                                  <button class="btn btn-sm btn-default" data-toggle="modal" data-target="#myModal">Prikazi Sliku</button>
+                                </td>
+                                <td class=" "><span class="pull-left">Sifra</span><span class="pull-right">31000 </span></td>
+                                <td class=" "><span class="pull-left">Naziv</span><span class="pull-right">JABUKA JONAGOLD I KLASA</span></td>
+                                <td class=" "><span class="pull-left">Velicina pakovanja</span><span class="pull-right">0.01</span></td>
+                                <td class=" "><span class="pull-left">Iznos</span><span class="pull-right">0.41</span></td>
+                                <td class=" ">
+                                  <span class="pull-left">Kolicina</span>
+                                  <!--TODO position quantity input on right place-->
+                                  <button onclick="setValueOnQuantityElement('quantityEditMobile3', '0')" style="visibility: hidden" id="closeBtnMobile3" class="btn btn-xs btn-danger pull-right"><i class="fa fa-close"></i> </button>
+                                  <div second-id="quantityEditMobile3" oninput="onQuantityChange('narucivanjeCheckBoxMobile3', 'quantityEditMobile3', 'closeBtnMobile3')" onchange="onQuantityChange('narucivanjeCheckBoxMobile3', 'quantityEditMobile3', 'closeBtnMobile3')" class="mobile-xxx xxx pull-right" data-name="quantity"></div>
+                                </td>
+
+                              </tr>
+                              <tr class="odd pointer">
+                                <td class="a-center ">
+                                  <!--TODO place check box on right position-->
+                                  <div class="mobile-check">
+                                    <input id="narucivanjeCheckBoxMobile4" type="checkbox" class="flat" name="table_records" disabled>
+                                  </div>
+                                  <button type="button" class="btn btn-success btn-sm pull-right" data-toggle="collapse" data-target="#collapseme">Dodaj u Korpu</button>
+                                  <button class="btn btn-sm btn-default" data-toggle="modal" data-target="#myModal">Prikazi Sliku</button>
+                                </td>
+                                <td class=" "><span class="pull-left">Sifra</span><span class="pull-right">31000 </span></td>
+                                <td class=" "><span class="pull-left">Naziv</span><span class="pull-right">JABUKA JONAGOLD I KLASA</span></td>
+                                <td class=" "><span class="pull-left">Velicina pakovanja</span><span class="pull-right">0.01</span></td>
+                                <td class=" "><span class="pull-left">Iznos</span><span class="pull-right">0.41</span></td>
+                                <td class=" ">
+                                  <span class="pull-left">Kolicina</span>
+                                  <!--TODO position quantity input on right place-->
+                                  <button onclick="setValueOnQuantityElement('quantityEditMobile4', '0')" style="visibility: hidden" id="closeBtnMobile4" class="btn btn-xs btn-danger pull-right"><i class="fa fa-close"></i> </button>
+                                  <div second-id="quantityEditMobile4" oninput="onQuantityChange('narucivanjeCheckBoxMobile4', 'quantityEditMobile4', 'closeBtnMobile4')" onchange="onQuantityChange('narucivanjeCheckBoxMobile4', 'quantityEditMobile4', 'closeBtnMobile4')" class="mobile-xxx xxx pull-right" data-name="quantity"></div>
+                                </td>
+
+                              </tr>
+                              <tr class="even pointer">
+                                <td class="a-center ">
+                                  <!--TODO place check box on right position-->
+                                  <div class="mobile-check">
+                                    <input id="narucivanjeCheckBoxMobile5" type="checkbox" class="flat" name="table_records" disabled>
+                                  </div>
+                                  <button type="button" class="btn btn-success btn-sm pull-right" data-toggle="collapse" data-target="#collapseme">Dodaj u Korpu</button>
+                                  <button class="btn btn-sm btn-default" data-toggle="modal" data-target="#myModal">Prikazi Sliku</button>
+                                </td>
+                                <td class=" "><span class="pull-left">Sifra</span><span class="pull-right">31000 </span></td>
+                                <td class=" "><span class="pull-left">Naziv</span><span class="pull-right">JABUKA JONAGOLD I KLASA</span></td>
+                                <td class=" "><span class="pull-left">Velicina pakovanja</span><span class="pull-right">0.01</span></td>
+                                <td class=" "><span class="pull-left">Iznos</span><span class="pull-right">0.41</span></td>
+                                <td class=" ">
+                                  <span class="pull-left">Kolicina</span>
+                                  <!--TODO position quantity input on right place-->
+                                  <button onclick="setValueOnQuantityElement('quantityEditMobile5', '0')" style="visibility: hidden" id="closeBtnMobile5" class="btn btn-xs btn-danger pull-right"><i class="fa fa-close"></i> </button>
+                                  <div second-id="quantityEditMobile5" oninput="onQuantityChange('narucivanjeCheckBoxMobile5', 'quantityEditMobile5', 'closeBtnMobile5')" onchange="onQuantityChange('narucivanjeCheckBoxMobile5', 'quantityEditMobile5', 'closeBtnMobile5')" class="mobile-xxx xxx pull-right" data-name="quantity"></div>
+                                </td>
+
+                              </tr>
+                              <tr class="odd pointer">
+                                <td class="a-center ">
+                                  <!--TODO place check box on right position-->
+                                  <div class="mobile-check">
+                                    <input id="narucivanjeCheckBoxMobile6" type="checkbox" class="flat" name="table_records" disabled>
+                                  </div>
+                                  <button type="button" class="btn btn-success btn-sm pull-right" data-toggle="collapse" data-target="#collapseme">Dodaj u Korpu</button>
+                                  <button class="btn btn-sm btn-default" data-toggle="modal" data-target="#myModal">Prikazi Sliku</button>
+                                </td>
+                                <td class=" "><span class="pull-left">Sifra</span><span class="pull-right">31000 </span></td>
+                                <td class=" "><span class="pull-left">Naziv</span><span class="pull-right">JABUKA JONAGOLD I KLASA</span></td>
+                                <td class=" "><span class="pull-left">Velicina pakovanja</span><span class="pull-right">0.01</span></td>
+                                <td class=" "><span class="pull-left">Iznos</span><span class="pull-right">0.41</span></td>
+                                <td class=" ">
+                                  <span class="pull-left">Kolicina</span>
+                                  <!--TODO position quantity input on right place-->
+                                  <button onclick="setValueOnQuantityElement('quantityEditMobile6', '0')" style="visibility: hidden" id="closeBtnMobile6" class="btn btn-xs btn-danger pull-right"><i class="fa fa-close"></i> </button>
+                                  <div second-id="quantityEditMobile6" oninput="onQuantityChange('narucivanjeCheckBoxMobile6', 'quantityEditMobile6', 'closeBtnMobile6')" onchange="onQuantityChange('narucivanjeCheckBoxMobile6', 'quantityEditMobile6', 'closeBtnMobile6')" class="mobile-xxx xxx pull-right" data-name="quantity"></div>
+                                </td>
+
+                              </tr>
+                              </tbody>
+                            </table>
+                          </div>
+
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+              </div>
+            </div>
+            <div class="clearfix"></div>
+          </div>
+        </div>
+        <!-- /page content -->
+
+        <!-- footer content -->
+        <footer>
+          <div class="pull-left">
+            Copyright ASW <a href="http://www.asw.eu/" target="_blank">asw.eu</a>
+          </div>
+          <div class="pull-right">
+            <img class="footer-logo" src="images/asw_footer_logo.png">
+          </div>
+
+          <div class="clearfix"></div>
+        </footer>
+        <!-- /footer content -->
+      </div>
+    </div>
+
+    <script src="vendors/item-groups/modernizr.custom.js"></script>
+
+    <!-- jQuery -->
+    <script src="vendors/jquery/dist/jquery.min.js"></script>
+    <!-- Bootstrap -->
+    <script src="vendors/bootstrap/dist/js/bootstrap.min.js"></script>
+    <!-- FastClick -->
+    <script src="vendors/fastclick/lib/fastclick.js"></script>
+    <!-- NProgress -->
+    <script src="vendors/nprogress/nprogress.js"></script>
+    <!-- iCheck -->
+    <script src="vendors/iCheck/icheck.min.js"></script>
+
+
+
+    <!-- Custom Theme Scripts -->
+    <script src="js/custom.js"></script>
+
+    <!--theme switcher -->
+
+    <script src="js/theme-switcher.js"></script>
+
+    <!--full screen mode -->
+
+    <script src="js/fullscreen-mode.js"></script>
+
+    <!-- quantity input field-->
+
+    <script src="js/input-quantity.js"></script>
+
+    <!-- Activate popover-->
+    <script>
+        $(function(){
+            // Enables popover
+            $("[data-toggle=popover]").popover();
+        });
+    </script>
+
+    <!-- Item groups section-->
+    <script src="vendors/item-groups/jquery.dlmenu.js"></script>
+    <script>
+        $(function() {
+            $( '#dl-menu' ).dlmenu();
+        });
+    </script>
+
+    <!-- Activate tooltip-->
+    <script>
+    	$(function () {
+	  $('[data-toggle="tooltip"]').tooltip()
+	})
+    </script>
+  </body>
+</html>
